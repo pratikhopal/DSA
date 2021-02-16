@@ -1,0 +1,73 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        List<Employee> employeeList=new ArrayList<>();
+        employeeList.add(new Employee("Pratik","Hopal",01));
+        employeeList.add(new Employee("Naitik","Hopal",02));
+        employeeList.add(new Employee("Sanjay","Hopal",03));
+        employeeList.add(new Employee("Alka","Hopal",04));
+        employeeList.set(0,new Employee("abc","xyz",06));
+
+        for (int i = 0; i <999 ; i++) {
+            System.out.println(employeeList.get(i));
+        }
+
+
+    }
+}
+
+
+// employee class //
+
+public class Employee {
+        private String firstname;
+        private String lastname;
+        private int ID;
+
+
+        public Employee(String firstname,String lastname,int ID){
+            this.firstname=firstname;
+            this.lastname=lastname;
+            this.ID=ID;
+        }
+
+        public String getLastname() {
+            return lastname;
+        }
+
+        public void setLastname(String lastname) {
+            this.lastname = lastname;
+        }
+
+        public int getID() {
+            return ID;
+        }
+
+        public void setID(int ID) {
+            this.ID = ID;
+        }
+
+        public String getFirstname() {
+            return firstname;
+        }
+
+        public void setFirstname(String Firstname){
+            this.firstname=firstname;
+        }
+
+        @Override
+        public String toString() {
+            return "Employee{" +
+                    "firstname='" + firstname + '\'' +
+                    ", lastname='" + lastname + '\'' +
+                    ", ID=" + ID +
+                    '}';
+        }
+    }
+
