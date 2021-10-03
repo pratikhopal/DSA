@@ -1,6 +1,3 @@
-#A tree is called full when every node has 0 or 2 child nodes
-#A tree is called perfect when every node has 2 child nodes
-#A tree is called complete where a tree is filled from left to right.
 class Node:
     def __init__(self,value):
         self.value = value 
@@ -19,7 +16,7 @@ class BinarySearchTree:
             return True
         temp = self.root
         while (True):
-            if temp.value == new_node.value:
+            if new_node.value == temp.value:
                 return False
             if new_node.value < temp.value:
                 if temp.left is None:
@@ -31,21 +28,25 @@ class BinarySearchTree:
                     temp.right = new_node
                     return True
                 temp = temp.right
-            
 
 
 
-
-
-
-
-
+    def contains(self,value):
+        temp = self.root
+        while temp is not None:
+            if value < temp.value:
+                temp = temp.left
+            elif value > temp.value:
+                temp = temp.right
+            else:
+                return True
+        return False
 
 mytree = BinarySearchTree()
-mytree.insert(2)
-mytree.insert(1)
+mytree.insert(5)
+mytree.insert(4)
 mytree.insert(3)
-print(mytree.root.value)
-print(mytree.root.left.value)
-print(mytree.root.right.value)
+mytree.insert(6)
+mytree.insert(7)
 
+print(mytree.contains(9))
